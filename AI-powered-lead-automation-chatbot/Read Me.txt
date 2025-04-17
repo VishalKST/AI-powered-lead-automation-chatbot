@@ -32,7 +32,7 @@ Share your target Google Sheet with the email in your credentials
 
 ---
 
-Create .env File
+Create .env File [Can you the "generate_env.py" to do so]
 Create a .env file in the root directory with the following:
 
 # Email configuration
