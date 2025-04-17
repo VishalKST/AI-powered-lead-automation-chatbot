@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Leads Dashboard</title>
+  <style>
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    h2 { text-align: center; }
+  </style>
+</head>
+<body>
+  <h2>AI Chatbot Leads Dashboard</h2>
+  <table id="leadsTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Industry</th>
+        <th>Budget</th>
+        <th>Service</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    fetch("http://127.0.0.1:5000/leads")
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.querySelector("#leadsTable tbody");
+        data.forEach(lead => {
+          const row = `<tr>
+            <td>${lead.Name}</td>
+            <td>${lead.Industry}</td>
+            <td>${lead.Budget}</td>
+            <td>${lead.Service}</td>
+            <td>${lead.Email}</td>
+            <td>${lead.Phone}</td>
+          </tr>`;
+          tbody.innerHTML += row;
+        });
+      });
+  </script>
+</body>
+</html>

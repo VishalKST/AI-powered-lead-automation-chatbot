@@ -1,0 +1,51 @@
+# AI-Powered Chatbot for Lead Automation
+
+This is an AI-powered multilingual chatbot built using Flask that captures leads and integrates with Google Sheets and HubSpot CRM. It collects user details through a multi-step conversation and sends email notifications both to the lead and the admin.
+
+## 🌟 Features
+
+- Multilingual Support (English, Hindi, Tamil)
+- Collects name, industry, budget, service, email, country, and phone number
+- Validates email and phone number formats
+- Sends leads to Google Sheets and HubSpot CRM
+- Email notification to admin and thank-you email to lead
+- Lead scoring via `models.py`
+
+---
+
+Install Dependencies
+Ensure you’re in a virtual environment:
+
+python -m venv venv
+source venv/bin/activate   # On Windows: venv\Scripts\activate
+
+pip install -r requirements.txt
+
+---
+
+Google Sheets Setup
+Create a Google Cloud Service Account
+
+Enable Google Sheets and Google Drive APIs
+Generate a JSON key file and rename it to credentials.json
+Share your target Google Sheet with the email in your credentials
+
+---
+
+Create .env File
+Create a .env file in the root directory with the following:
+
+# Email configuration
+SENDER_EMAIL=your-email@gmail.com
+SENDER_PASSWORD=your-app-password  # Use an App Password, not your main Gmail password
+RECEIVER_EMAIL=admin-email@example.com
+
+# HubSpot API
+HUBSPOT_API_KEY=your-hubspot-api-key
+
+---
+Run the App
+python app.py
+Then open index.html from the frontend folder
+After that in HubSpot the lead details are visible
+
